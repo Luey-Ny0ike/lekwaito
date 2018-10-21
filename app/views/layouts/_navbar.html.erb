@@ -9,10 +9,10 @@
     <!-- header-bot-->
     <div class="col-md-4 logo_agile">
       <h1>
-        <a href="index.html">
+        <a href="/">
           <!-- <span>L</span>ekwaito
           <span>l</span>iquor -->
-          <img src="images/logo2.png" alt=" ">
+          <img src="/images/logo2.png" alt=" ">
         </a>
       </h1>
     </div>
@@ -162,35 +162,11 @@
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
-              <li class="">
-
-              <li class="">
-                <a class="nav-stylehead" href="Vodka.html">Vodka</a>
-              </li>
-              <li class="">
-                <a class="nav-stylehead" href="Cognac.html">Cognac</a>
-              </li>
-              <li class="">
-                <a class="nav-stylehead" href="Whiskey.html">Whiskey</a>
-              </li>
-              <li class="">
-                <a class="nav-stylehead" href="Rum.html">Rum</a>
-              </li>
-              <li class="">
-                <a class="nav-stylehead" href="Gin.html">Gin</a>
-              </li>
-              <li class="">
-                <a class="nav-stylehead" href="Brandy.html">Brandy</a>
-              </li>
-              <li class="">
-                <a class="nav-stylehead" href="Wine.html">Wine</a>
-              </li>
-              <li class="">
-                <a class="nav-stylehead" href="Tequila.html">Tequila</a>
-              </li>
-              <li class="">
-                <a class="nav-stylehead" href="Energy Drink.html">Energy Drink</a>
-              </li>
+              <% @categorieso.each do |category| %>
+                <li class="">
+                  <a class="nav-stylehead" href="/categories/<%= category.id%>"><%= category.name %></a>
+                </li>
+              <% end %>
               <li class="">
                 <a class="nav-stylehead" href="contact.html">Contact</a>
               </li>
