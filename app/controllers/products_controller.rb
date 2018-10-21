@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @specialoffers = Product.where(special_offer: true)
   end
 
   # GET /products/new
