@@ -1,5 +1,6 @@
 class HomeController < ActionController::Base
   def index
+    @categorieso = Category.first(9)
     @liquor = Product.last(3)
     @deals = Product.where(deal: true)
     @specialoffers = Product.where(special_offer: true)
