@@ -10,6 +10,8 @@ class CategoriesController < ApplicationController
   # GET /categories/1
   # GET /categories/1.json
   def show
+    @products = @category.products
+    @deals = Product.where(deal: true)
   end
 
   # GET /categories/new
