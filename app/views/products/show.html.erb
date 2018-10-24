@@ -60,21 +60,30 @@
 						<label for="rating1">1</label>
 					</span>
 				</div>
+				<% if @product.offer_price == nil %>
 				<p>
-					<span class="item_price"><%= @product.price %></span>
-					<del>$1300.00</del>
-					<label>Free delivery</label>
+					<span class="item_price"><%= @product.price %> Ksh.</span>
 				</p>
+					<% else %>
+					<span class="item_price"><%= @product.offer_price %></span>
+					<del><%= @product.price %></del>
+					<% end %>
+					<% if @product.free_delivery == true %>
+					<p>
+					<label>Free delivery</label></p>
+					<% else %>
+					<p><%= @product.delivery_cost %></p>
+					<% end %>
 				<div class="single-infoagile">
 					<ul>
+						<% if @product.cash_on_delivery == true %>
 						<li>
 							Cash on Delivery Eligible.
 						</li>
+						<% end %>
 						<li>
-							Shipping Speed to Delivery.
-						</li>
-						<li>
-							Sold and fulfilled by Supple Tek (3.6 out of 5 | 8 ratings).
+							Alcohol percentage <br>
+							<span><%= @product.percentage %></span>
 						</li>
 						<li>
 							1 offer from
