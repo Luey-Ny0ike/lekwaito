@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= form.label :liqour_locality %>
+    <%= form.select :liqour_preference, ["Local", "International"]%>
+  </div>
+
+  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :product_title %>
   </div>
@@ -32,10 +37,29 @@
   </div>
 
   <div class="field">
+    <%= form.label :alcohol_percentage %>
+    <%= form.select :alcohol_percentage,["1%-4%", "4%-10%"], id: :alcohol_percentage%>
+  </div>
+
+  <div class="field">
     <%= form.label :price %>
     <%= form.text_field :price, id: :product_price %>
   </div>
 
+  <div class="field">
+    <%= form.label :offer_price %>
+    <%= form.text_field :offer_price, id: :offer_price%>
+  </div>
+
+  <div class="field">
+    <%= form.label :free_delivery %>
+    <%= form.check_box :free_delivery, id: :free_delivery%>
+  </div>
+
+  <div class="field">
+    <%= form.label :cash_on_delivery_eligible %>
+    <%= form.check_box :cash_on_delivery, id: :cash_on_delivery %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>
