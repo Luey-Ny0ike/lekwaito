@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="zxx">
-	<%= render 'layouts/headlinks'%>
 <body>
-	<%= render 'layouts/navbar'%>
 	<!-- banner -->
 	<div id="myCarousel" class="carousel slide" data-ride="carousel">
 		<!-- Indicators-->
@@ -133,7 +131,7 @@
 						</div>
 						<div class="col-xs-8">
 							<h3><%= product.title %></h3>
-							<a href="#"><%= product.price %></a>
+							<a href="/products/<%= product.id %>"><%= product.price %></a>
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -173,20 +171,13 @@
 										<% end %>
 									</div>
 									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-										<form action="#" method="post">
-											<fieldset>
-												<input type="hidden" name="cmd" value="_cart" />
-												<input type="hidden" name="add" value="1" />
-												<input type="hidden" name="business" value=" " />
-												<input type="hidden" name="item_name" value="<%= product.title %>" />
-												<input type="hidden" name="amount" value="<%= product.price %>" />
-												<input type="hidden" name="discount_amount" value="1.00" />
-												<input type="hidden" name="currency_code" value="USD" />
-												<input type="hidden" name="return" value=" " />
-												<input type="hidden" name="cancel_return" value=" " />
-												<input type="submit" name="submit" value="Add to cart" class="button" />
-											</fieldset>
-										</form>
+										<%= form_for @order_item, remote: true do |f| %>
+										<div class="input-group-btn">
+											<%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1 %>
+											<%= f.hidden_field :product_id, value: product.id %>
+											<%= f.submit "Add to Cart", class: "button" %>
+										</div>
+										<% end %>
 									</div>
 
 								</div>
@@ -237,20 +228,13 @@
 										<% end %>
 									</div>
 									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-										<form action="#" method="post">
-											<fieldset>
-												<input type="hidden" name="cmd" value="_cart" />
-												<input type="hidden" name="add" value="1" />
-												<input type="hidden" name="business" value=" " />
-												<input type="hidden" name="item_name" value="<%= product.title%>" />
-												<input type="hidden" name="amount" value="<%= product.price %>" />
-												<input type="hidden" name="discount_amount" value="1.00" />
-												<input type="hidden" name="currency_code" value="USD" />
-												<input type="hidden" name="return" value=" " />
-												<input type="hidden" name="cancel_return" value=" " />
-												<input type="submit" name="submit" value="Add to cart" class="button" />
-											</fieldset>
-										</form>
+										<%= form_for @order_item, remote: true do |f| %>
+										<div class="input-group-btn">
+											<%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1 %>
+											<%= f.hidden_field :product_id, value: product.id %>
+											<%= f.submit "Add to Cart", class: "button" %>
+										</div>
+										<% end %>
 									</div>
 
 								</div>
@@ -288,20 +272,13 @@
 										<% end %>
 									</div>
 									<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-										<form action="#" method="post">
-											<fieldset>
-												<input type="hidden" name="cmd" value="_cart" />
-												<input type="hidden" name="add" value="1" />
-												<input type="hidden" name="business" value=" " />
-												<input type="hidden" name="item_name" value="<%= product.title %>" />
-												<input type="hidden" name="amount" value="<%= product.price %>" />
-												<input type="hidden" name="discount_amount" value="1.00" />
-												<input type="hidden" name="currency_code" value="USD" />
-												<input type="hidden" name="return" value=" " />
-												<input type="hidden" name="cancel_return" value=" " />
-												<input type="submit" name="submit" value="Add to cart" class="button" />
-											</fieldset>
-										</form>
+										<%= form_for @order_item, remote: true do |f| %>
+										<div class="input-group-btn">
+											<%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1 %>
+											<%= f.hidden_field :product_id, value: product.id %>
+											<%= f.submit "Add to Cart", class: "button" %>
+										</div>
+										<% end %>
 									</div>
 
 								</div>
@@ -346,20 +323,13 @@
 									<p>Save $40.00</p>
 								</div>
 								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-									<form action="#" method="post">
-										<fieldset>
-											<input type="hidden" name="cmd" value="_cart" />
-											<input type="hidden" name="add" value="1" />
-											<input type="hidden" name="business" value=" " />
-											<input type="hidden" name="item_name" value="Aashirvaad, 5g" />
-											<input type="hidden" name="amount" value="220.00" />
-											<input type="hidden" name="discount_amount" value="1.00" />
-											<input type="hidden" name="currency_code" value="USD" />
-											<input type="hidden" name="return" value=" " />
-											<input type="hidden" name="cancel_return" value=" " />
-											<input type="submit" name="submit" value="Add to cart" class="button" />
-										</fieldset>
-									</form>
+									<%= form_for @order_item, remote: true do |f| %>
+									<div class="input-group-btn">
+										<%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1 %>
+										<%= f.hidden_field :product_id, value: product.id %>
+										<%= f.submit "Add to Cart", class: "button" %>
+									</div>
+									<% end %>
 								</div>
 							</div>
 						</div>
@@ -370,10 +340,6 @@
 		</div>
 	</div>
 </div>
-	<%= render 'layouts/footer'%>
-
-	<%= render 'layouts/customjs'%>
-
 </body>
 
 </html>
