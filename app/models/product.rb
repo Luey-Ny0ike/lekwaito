@@ -7,7 +7,6 @@ class Product < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   # THINKING SPHINX SET UP
-  after_save ThinkingSphinx::RealTime.callback_for(:product)
 
   default_scope { where(active: true) }
 
