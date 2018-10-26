@@ -1,0 +1,29 @@
+<tr class="rem1">
+  <td class="invert">1</td>
+  <td class="invert-image">
+    <a href="/products/<%= product.id %>">
+      <%= image_tag product.image.url(:medium), class:"img-responsive"%>
+    </a>
+  </td>
+  <td class="invert">
+    <div class="quantity">
+      <div class="quantity-select">
+        <div class="entry value-minus">&nbsp;</div>
+        <div class="entry value">
+          <span>1</span>
+        </div>
+        <div class="entry value-plus active">&nbsp;</div>
+      </div>
+    </div>
+  </td>
+  <td class="invert"><%= product.title %></td>
+  <td class="invert"><%= product.total_price %></td>
+  <td class="invert">
+    <div class="rem">
+      <%= link_to order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.title}' from your cart?" }, method: :delete, remote: true } do %>
+      <div class="close1">
+      </div>
+      <% end %>
+    </div>
+  </td>
+</tr>
