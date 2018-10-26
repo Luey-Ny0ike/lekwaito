@@ -1,28 +1,33 @@
 <% if !@order_item.nil? && @order_item.errors.any? %>
-  <div class="alert alert-danger">
-    <ul>
+<div class="alert alert-danger">
+  <ul>
     <% @order_item.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <li><%= msg %></li>
     <% end %>
-    </ul>
-  </div>
+  </ul>
+</div>
 <% end %>
 <% if @order_items.size == 0 %>
-  <p class="text-center">
-    There are no items in your shopping cart.  Please <%= link_to "go back", root_path %> and add some items to your cart.
-  </p>
+<p class="text-center">
+  There are no items in your shopping cart. Please
+  <%= link_to "go back", root_path %>
+  and add some items to your cart.
+</p>
 <% else %>
-  <div class="cart-text">
-    <% @order_items.each do |order_item| %>
-      <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
-    <% end %>
+<div class="cart-text">
+  <% @order_items.each do |order_item| %>
+  <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
+  <% end %>
 
-    <div class="push-right"><br>
-      <hr>
-        <h4><strong>Sub Total Amount: <br><br>
-          <span style="color: green"><%= " #{current_order.subtotal} Ksh." %></span>
-        </strong>
-        </h4>
-    </div>
+  <div class="push-right"><br>
+    <hr>
+    <h4>
+      <strong>Sub Total Amount:
+        <br><br>
+        <span style="color: green"><%= " #{current_order.subtotal} Ksh." %></span>
+      </strong>
+      <a href="/checkout" class="btn btn-primary">Proceed to checkout</a>
+    </h4>
   </div>
+</div>
 <% end %>
