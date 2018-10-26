@@ -1,5 +1,6 @@
-class HomeController < ActionController::Base
+class HomeController < ApplicationController
   def index
+    @order_item = current_order.order_items.new
     @categorieso = Category.first(9)
     @liquor = Product.last(3)
     @deals = Product.where(deal: true)
