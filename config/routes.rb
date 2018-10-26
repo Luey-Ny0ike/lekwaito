@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+
   resources :categories
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
     devise_for :users, controllers: {
