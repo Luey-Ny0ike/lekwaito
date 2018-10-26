@@ -10,4 +10,9 @@ class HomeController < ApplicationController
     @gc = Category.find_by_name("Gin")
     @gin = Product.where(category_id: @gc.id)
   end
+
+  def checkout
+    @order_items = current_order.order_items
+    @delivery = Delivery.new
+  end
 end
