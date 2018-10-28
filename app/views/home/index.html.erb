@@ -306,21 +306,30 @@
 			<!-- //tittle heading -->
 			<div class="content-bottom-in">
 				<ul id="flexiselDemo1">
-			<% @specialoffers.each do |product| %>
+					<% @specialoffers.each do |product| %>
 					<li>
 						<div class="w3l-specilamk">
 							<div class="speioffer-agile">
-								<a href="#">
+								<a href="/products/<%= product.id %>">
 									<%= image_tag product.image.url(:medium) %>
 								</a>
 							</div>
 							<div class="product-name-w3l">
 								<h4>
-									<a href="#"><%= product.title %></a>
+									<a href="/products/<%= product.id %>"><%= product.title %></a>
 								</h4>
 								<div class="w3l-pricehkj">
-									<h6><%= product.price %></h6>
-									<p>Save $40.00</p>
+									<% if product.offer_price == nil %>
+									<p>
+										<span class="item_price"><%= product.price %>
+											Ksh.</span>
+									</p>
+								<% else %>
+									<span class="item_price"><%= product.offer_price %></span>
+									<% end %>
+									<p>Save
+										<%= product.discounted_price %>
+										Ksh</p>
 								</div>
 								<div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
 									<%= form_for @order_item, remote: true do |f| %>
@@ -334,8 +343,8 @@
 							</div>
 						</div>
 					</li>
-			<% end %>
-		</ul>
+					<% end %>
+				</ul>
 	</div>
 		</div>
 	</div>
