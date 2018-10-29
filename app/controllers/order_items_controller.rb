@@ -3,7 +3,12 @@ class OrderItemsController < ApplicationController
   def create
     @order = current_order
     @order_item = @order.order_items.new(order_item_params)
-    @order.save
+    existingorder = @order.order_items.where(product_id: params[:order_item][:order_id])
+    if existingorder.count >=1
+      existingorder.last.update_attributes(:quantity, existingorder.last.quantity + params[:order_item][:quantity].to_i)
+    else
+      @order.save
+    end
     session[:order_id] = @order.id
   end
 
