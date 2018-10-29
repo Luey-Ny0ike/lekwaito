@@ -53,8 +53,41 @@
     </div>
 <div class="checkout-left">
   <div class="address_form_agile">
+    <% if @deliveryaddress != nil%>
+    <h4>Your Delivery Details</h4>
+    <div class="table-responsive">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Full name</th>
+          <th>Mobile number</th>
+          <th>Town</th>
+          <th>Landmark</th>
+          <th>Email</th>
+          <th>Address type</th>
+          <th>Id number</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+      </div>
+          <tr>
+            <td><%= @deliveryaddress.full_name %></td>
+            <td><%= @deliveryaddress.mobile_number %></td>
+            <td><%= @deliveryaddress.town %></td>
+            <td><%= @deliveryaddress.landmark %></td>
+            <td><%= @deliveryaddress.email %></td>
+            <td><%= @deliveryaddress.address_type %></td>
+            <td><%= @deliveryaddress.id_number %></td>
+            </tr>
+      </tbody>
+    </table>
+    <% else %>
     <h4>Add new Details</h4>
     <%= render 'deliveries/form'%>
+    <% end %>
   </div>
 </div>
 </div>

@@ -40,7 +40,7 @@
 
   <div class="field">
     <%= form.label :address_type %>
-    <%= form.text_field :address_type, id: :delivery_address_type %>
+    <%= form.select :address_type, [ "Office", "Home", "Commercial" ],id: :delivery_address_type, include_blank: "Select Address Type" %>
   </div>
 
   <div class="field">
