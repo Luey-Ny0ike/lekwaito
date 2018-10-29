@@ -14,5 +14,6 @@ class HomeController < ApplicationController
   def checkout
     @order_items = current_order.order_items
     @delivery = Delivery.new
+    @deliveryaddress = current_order.delivery
   end
 end
