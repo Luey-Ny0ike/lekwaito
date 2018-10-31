@@ -12,13 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20181026123229) do
 
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "deliveries", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "deliveries", force: :cascade do |t|
     t.string "full_name"
     t.integer "mobile_number"
     t.string "town"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20181026123229) do
     t.integer "order_id"
   end
 
-  create_table "order_items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "order_items", force: :cascade do |t|
     t.bigint "product_id"
     t.bigint "order_id"
     t.decimal "unit_price", precision: 12, scale: 3
@@ -43,13 +46,13 @@ ActiveRecord::Schema.define(version: 20181026123229) do
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
 
-  create_table "order_statuses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "order_statuses", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "orders", force: :cascade do |t|
     t.decimal "subtotal", precision: 12, scale: 3
     t.decimal "tax", precision: 12, scale: 3
     t.decimal "shipping", precision: 12, scale: 3
@@ -61,10 +64,10 @@ ActiveRecord::Schema.define(version: 20181026123229) do
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "products", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.decimal "price", precision: 12, scale: 3
+    t.string "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
@@ -83,7 +86,7 @@ ActiveRecord::Schema.define(version: 20181026123229) do
     t.boolean "active"
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
