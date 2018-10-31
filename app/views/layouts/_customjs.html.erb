@@ -53,23 +53,6 @@
 
 <!-- price range (top products) -->
 <script src="/js/jquery-ui.js"></script>
-<script>
-  //<![CDATA[
-  $(window).load(function () {
-    $("#slider-range").slider({
-      range: true,
-      min: 0,
-      max: 9000,
-      values: [50, 6000],
-      slide: function (event, ui) {
-        $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-      }
-    });
-    $("#amount").val("$" + $("#slider-range").slider("values", 0) + " - $" + $("#slider-range").slider("values", 1));
-
-  }); //]]>
-</script>
-<!-- //price range (top products) -->
 
 <!-- flexisel (for special offers) -->
 <script src="/js/jquery.flexisel.js"></script>
