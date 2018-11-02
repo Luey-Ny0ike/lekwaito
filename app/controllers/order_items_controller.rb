@@ -12,7 +12,7 @@ class OrderItemsController < ApplicationController
     end
     session[:order_id] = @order.id
     respond_to do |format|
-      format.json
+      format.js
     end
   end
 
