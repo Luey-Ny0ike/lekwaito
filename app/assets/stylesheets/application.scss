@@ -17,3 +17,14 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+.uero{
+  margin: 0 auto;
+  width: 80%;
+}
+
+@media only screen and (max-width: 676px) {
+  .uero{
+    width: 97%;
+  }
+}
