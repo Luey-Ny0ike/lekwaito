@@ -11,6 +11,9 @@ class OrderItemsController < ApplicationController
       @order.save
     end
     session[:order_id] = @order.id
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
