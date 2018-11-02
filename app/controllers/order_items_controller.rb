@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  respond_to :js
+  respond_to :js, only: [:update, :create, :destroy]
   def create
     @order = current_order
     @order_item = @order.order_items.new(order_item_params)
