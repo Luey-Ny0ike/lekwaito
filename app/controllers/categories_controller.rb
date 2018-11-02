@@ -12,6 +12,7 @@ class CategoriesController < ApplicationController
   def show
     @products = @category.products
     @deals = Product.where(deal: true)
+    @order_item = current_order.order_items.new
   end
 
   # GET /categories/new
