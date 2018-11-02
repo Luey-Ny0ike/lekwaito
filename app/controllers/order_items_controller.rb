@@ -1,6 +1,6 @@
 class OrderItemsController < ApplicationController
   skip_before_action :verify_authenticity_token
-  respond_to :js, only: [:update, :create, :destroy]
+  respond_to :js, only: [:update, :create, :destroy], :layout => 'false'
   def create
     @order = current_order
     @order_item = @order.order_items.new(order_item_params)
@@ -12,7 +12,7 @@ class OrderItemsController < ApplicationController
     end
     session[:order_id] = @order.id
     respond_to do |format|
-      format.js
+      format.js if request.xhr?
     end
   end
 
