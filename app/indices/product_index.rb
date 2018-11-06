@@ -2,7 +2,7 @@ ThinkingSphinx::Index.define :product, :with => :real_time do
   # fields
   indexes title, :sortable => true
   indexes description
-  indexes author.name, :as => :author, :sortable => true
+  indexes percentage
 
   # attributes
   has category_id,  :type => :integer

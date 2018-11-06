@@ -1,0 +1,87 @@
+<!-- top Products -->
+<div class="ads-grid">
+  <div class="container">
+    <!-- tittle heading -->
+    <h3 class="tittle-w3l">Our Top Products
+      <span class="heading-style">
+        <i></i>
+        <i></i>
+        <i></i>
+      </span>
+    </h3>
+    <!-- //tittle heading -->
+    <!-- product left -->
+    <div class="side-bar col-md-3">
+      <div class="search-hotel">
+        <h3 class="agileits-sear-head">Search Here..</h3>
+        <form class="filter-form" method="get" action="search">
+          <%= render 'search/form' %>
+          <input type="submit" value=" ">
+        </form>
+      </div>
+      <!--  preference -->
+      <div class="left-side">
+        <h3 class="agileits-sear-head">Liquor Preference</h3>
+        <ul>
+          <li>
+            <input type="checkbox" class="checked">
+            <span class="span">Local</span>
+          </li>
+          <li>
+            <input type="checkbox" class="checked">
+            <span class="span">International</span>
+          </li>
+        </ul>
+      </div>
+      <!-- //preference -->
+    </div>
+
+<div class="agileinfo-ads-display col-md-9">
+  <div class="wrapper">
+    <!-- first section (liqour) -->
+    <div class="product-sec1">
+      <h3 class="heading-tittle">Liquor</h3>
+      <% @productso.each do |product| %>
+      <div class="col-md-4 product-men">
+        <div class="men-pro-item simpleCart_shelfItem">
+          <div class="men-thumb-item">
+            <%= image_tag product.image.url(:medium), class:"img-responsive" %>
+            <div class="men-cart-pro">
+              <div class="inner-men-cart-pro">
+                <a href="/products/<%= product.id %>" class="link-product-add-cart">Quick View</a>
+              </div>
+            </div>
+            <span class="product-new-top">New</span>
+          </div>
+          <div class="item-info-product ">
+            <h4>
+              <a href="#"><%= product.title %></a>
+            </h4>
+            <div class="info-product-price">
+              <% if product.offer_price == nil %>
+              <span class="item_price"><%= product.price %> Ksh.</span>
+              <% else %>
+              <span class="item_price"><%= product.offer_price %> Ksh.</span>
+              <del><%= product.price %></del>
+              <% end %>
+            </div>
+            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+              <%= form_for @order_item, remote: true, method: :post do |f| %>
+              <div class="input-group-btn">
+                <%= f.hidden_field :quantity, value: 1, class: "form-control", min: 1 %>
+                <%= f.hidden_field :product_id, value: product.id %>
+                <%= f.submit "Add to Cart", class: "button" %>
+              </div>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <% end %>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
