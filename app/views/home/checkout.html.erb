@@ -43,7 +43,7 @@
               <th>Remove</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody class="checkout-cart">
             <% @order_items.each do |order_item| %>
             <%= render 'home/checkout', product: order_item.product, order_item: order_item, show_total: true %>
             <% end %>
@@ -83,16 +83,16 @@
             </tr>
           </tbody>
         </table>
+        <div class="checkout-right-basket">
+          <a href="/payment">Make a Payment
+            <span class="fa fa-hand-o-right" aria-hidden="true"></span>
+          </a>
+        </div><br><br>
       <% else %>
         <h4>Add new Details</h4>
         <%= render 'deliveries/form'%>
         <% end %>
       </div>
     </div>
-    <div class="checkout-right-basket">
-      <a href="/payment">Make a Payment
-        <span class="fa fa-hand-o-right" aria-hidden="true"></span>
-      </a>
-    </div><br><br>
   </div>
 </div>
