@@ -25,6 +25,10 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
     @order_items = @order.order_items
+    respond_to do |format|
+      format.html { redirect_to '/checkout' }
+      format.js
+    end
   end
 private
 

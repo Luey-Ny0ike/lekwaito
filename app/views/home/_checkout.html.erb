@@ -20,7 +20,7 @@
   <td class="invert"><%= product.total_price %></td>
   <td class="invert">
     <div class="rem">
-      <%= link_to order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.title}' from your cart?" }, method: :delete, remote: true } do %>
+      <%= link_to order_item, method: :delete do %>
       <div class="close1">
       </div>
       <% end %>
