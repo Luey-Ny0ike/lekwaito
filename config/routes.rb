@@ -10,7 +10,7 @@ Rails.application.routes.draw do
         controllers: {
           registrations: 'users/registrations'
         }
-  root 'home#index'
+  root 'home#countdown'
   resources :products
   get 'contact_us', to: 'home#contact'
   get 'about_us', to: 'home#about'
